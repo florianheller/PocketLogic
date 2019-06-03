@@ -11,7 +11,7 @@ For this tutorial I used the following hardware:
 - PocketBeagle board ([link](http://beagleboard.org/pocket))
 - 16Gb microSD-card (everything with 4Gb or more should do fine)
 - PlasticLogic Hummingbird Z7.2 EPD Driver Board (C_HBZ7 / 301015) ([link](http://www.plasticlogic.com/products/evaluation-kits/kits-on-epson-platform/kits-4-9-inch-display/#1503061380699-f800df99-5e01))
-- PlasticLogic 4.9" Lectum ePaper Display ([link]((https://www.plasticlogic.com/products/displays/displays-with-epson/4-9-inch-display/))
+- PlasticLogic 4.9" Lectum ePaper Display ([link](https://www.plasticlogic.com/products/displays/displays-with-epson/4-9-inch-display/))
 
 This tutorial should work with all Epson S1D13541 EPD controller-based displays that are powered using the Hummingbird Z7.2 controller and connected using the 24-pin FPC connector. If in doubt, ask PlasticLogic first.  
 
@@ -22,7 +22,7 @@ This tutorial should work with all Epson S1D13541 EPD controller-based displays 
 
 [![PocketLogic](./img/schematics.jpg)](./img/schematics.pdf)
 
-##Board
+## Board
 
 [cape.brd](./resources/cape.brd)
 
