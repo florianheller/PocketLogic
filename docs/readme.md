@@ -31,7 +31,7 @@ The default password is `temppwd' which you should change obviously.
  
 ### Optional: Re-partition the microSD-card to use its full capacity
 The beagleboard images are set up to fit exactly on a 4Gb card. If you flash it onto a larger card, the remaining space will be left unused. 
-If you want to use the additional space, you need to re-partition the card accordingly. See (this guide)[https://elinux.org/Beagleboard:Expanding_File_System_Partition_On_A_microSD] for more info. 
+If you want to use the additional space, you need to re-partition the card accordingly. See [this guide](https://elinux.org/Beagleboard:Expanding_File_System_Partition_On_A_microSD) for more info. 
 
 ### Install the required packages
 sudo apt-get install libfreetype6 
@@ -39,20 +39,24 @@ sudo apt-get install libfreetype6
 ## Setting the pins to their intended use
 The pins on the PocketBeagle can serve multiple purposes, from general purpose I/O to specific hardware capabilities. Their functionality is controlled through the config-pin command. For example, the Pin P1_08, which we will use for the SPI_CLK signal can have the following functionality:
 
-```debian@beaglebone:~$ config-pin -i P1_08
+```bash
+debian@beaglebone:~$ config-pin -i P1_08
 Pin name: P1_08
 Function if no cape loaded: spi_sclk
 Function if cape loaded: default gpio gpio_pu gpio_pd gpio_input spi_sclk uart i2c pwm pru_uart
 Function information: spi0_sclk default gpio0_2 gpio0_2 gpio0_2 gpio0_2 spi0_sclk uart2_rxd i2c2_sda ehrpwm0a pru_uart
 Kernel GPIO id: 2
-PRU GPIO id: 34```
+PRU GPIO id: 34
+```
 
 
 To set the pins to their correct purpose automatically at boot time, we will use the same procedure as described [here](https://gist.github.com/pdp7/d4770a6ba17e666848796bf5cfd0caee)
 
-### Create a file `/usr/bin/epdc-enable-pins.sh`
+## Configure pins at boot time
+
+Create a file `/usr/bin/epdc-enable-pins.sh`
 **sudo nano /usr/bin/epdc-enable-pins.sh**
-```
+```sh
 #!/bin/bash
 #EPDC Connector
 config-pin P1_08 spi_sclk	#SPI_CLK
