@@ -119,6 +119,67 @@ Oct 07 16:41:00 beaglebone systemd[1]: Started Enable pins required for the ePap
 ```
 
 # Copy the necessary configuration files
+The epdc-app looks for the configuration files in the ```/boot/uboot```-folder. Depending on your configuration it might be more useful to place the files somewhere else and use softlinks (`ln -s`).
+I copied the S049_T1.1 folder from this [Plastic Logic Repository)[https://github.com/plasticlogic/pl-bb-sd-card] and the following configuration files to /boot/uboot/: 
+
+
+**`/boot/uboot/config.txt`**
+```
+display_type S049_T1.1
+
+```
+
+**`/boot/uboot/S049_T1.1/epdc.config`**
+```
+[version]
+name = CONFIG_S049_T1.1
+
+[display]
+nvm = S1D13541
+nvm_format = S1D13541
+controller = S1D13541
+temp_mode = MANUAL
+instruction_code_file = "/boot/uboot/S049_T1.1/bin/Ecode.bin"
+default_vcom = 4000
+default_temp = 23
+default_waveform = "/boot/uboot/S049_T1.1/display/waveform.bin"
+
+[general]
+driver_board = CHIFFCHAFF
+control_system = BEAGLEBONE_BLACK
+spi_port = 1
+epdc_spi_port = 1
+nvm_spi_port = 1
+DISPLAY_SCRAMBLE_CONFIG	= 96
+
+[vcom]
+dac_x1				= 127	;   /* first DAC register value (25% of full scale) */
+dac_y1				= 4172	;   /* corresponding first voltage in mV */
+dac_x2				= 382	;   /* second DAC register value (75% of full scale) */
+dac_y2				= 12490	;   /* corresponding second voltage in mV */
+vgpos_mv 			= 25080	;   /* VGPOS in mV */
+vgneg_mv 			=-32300	;   /* VGNEG in mV */
+swing_ideal 	= 56886
+
+[hv_hardware]
+hv_config_vgl = -32300
+hv_config_vgh =  25080
+hv_config_vsh =  15000
+vcom_driver = NULL
+vcom_config = TPS65185
+hv_driver = GPIO
+hv_config = TPS65185
+hv_timing = TPS65185
+vcom_switch = GPIO
+TOFFSET_VGL_ON	=	8
+TOFFSET_VSL_ON	=	2
+TOFFSET_VSH_ON	=	11
+TOFFSET_VGH_ON	=	3
+TOFFSET_VGH_OFF	=	0
+TOFFSET_VSH_OFF	=	0
+TOFFSET_VSL_OFF	=	0
+TOFFSET_VGL_OFF	=	0
+```
 
 # Install the EPDC-App compiled for the PocketBeagle
 Check the [pl-bb-epd companion repository](https://github.com/florianheller/pl-bb-epd/) for the latest version.
