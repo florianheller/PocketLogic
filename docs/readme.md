@@ -16,6 +16,19 @@ For this tutorial I used the following hardware:
 This tutorial should work with all Epson S1D13541 EPD controller-based displays that are powered using the Hummingbird Z7.2 controller and connected using the 24-pin FPC connector. If in doubt, ask PlasticLogic first.  
 
 # The Board
+[Schematics](./resources/cape.sch)
+![PocketLogic](./img/schematics.pdf)
+[Board](./resources/cape.brd)
+![PocketLogic](./img/board.pdf)
+
+I had my boards being manufactured by [Aisler](https://aisler.net). 
+
+## BOM
+| Part | Digikey Order Number |
+| XF2M-2415-1A  |  OR721CT-ND |
+| USB			|  ED2989-ND  |
+| R1, R2		|  RHM22DCT-ND|
+| RNx			| 741X083101JPCT-ND|
 
 # Preparing the PocketBeagle
 
