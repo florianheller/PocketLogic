@@ -4,6 +4,8 @@ I implemented a wearable prototype based on the 4.9" Lectum Display and started 
 However, since my prototype was designed to be a wearable device, I had to move to a smaller form factor. 
 As the platform is quite general-purpose, I share the information such that you can build your own one. 
 
+![PocketLogic](./img/PocketLogic.gif)
+
 # Prerequisites
 For this tutorial I used the following hardware:
 - PocketBeagle board ([link](http://beagleboard.org/pocket))
@@ -34,12 +36,12 @@ The beagleboard images are set up to fit exactly on a 4Gb card. If you flash it 
 If you want to use the additional space, you need to re-partition the card accordingly. See [this guide](https://elinux.org/Beagleboard:Expanding_File_System_Partition_On_A_microSD) for more info. 
 
 ### Install the required packages
-sudo apt-get install libfreetype6 
+```sudo apt-get install libfreetype6 ```
 
 ## Setting the pins to their intended use
 The pins on the PocketBeagle can serve multiple purposes, from general purpose I/O to specific hardware capabilities. Their functionality is controlled through the config-pin command. For example, the Pin P1_08, which we will use for the SPI_CLK signal can have the following functionality:
 
-```bash
+```
 debian@beaglebone:~$ config-pin -i P1_08
 Pin name: P1_08
 Function if no cape loaded: spi_sclk
@@ -55,8 +57,9 @@ To set the pins to their correct purpose automatically at boot time, we will use
 ## Configure pins at boot time
 
 Create a file `/usr/bin/epdc-enable-pins.sh`
+
 **sudo nano /usr/bin/epdc-enable-pins.sh**
-```sh
+```bash
 #!/bin/bash
 #EPDC Connector
 config-pin P1_08 spi_sclk	#SPI_CLK
@@ -81,7 +84,8 @@ config-pin p2_20 lo			#HVSW_CTRL
 
 **sudo chmod 755 /usr/bin/epdc-enable-pins.sh**
 
-### Create a system service file `/lib/systemd/system/enable-epdc-pins.service`
+Create a system service file `/lib/systemd/system/enable-epdc-pins.service`
+
 **sudo nano /lib/systemd/system/epdc-enable-pins.service**
 ```
 [Unit]
@@ -117,7 +121,8 @@ Oct 07 16:41:00 beaglebone systemd[1]: Started Enable pins required for the ePap
 # Copy the necessary configuration files
 
 # Install the EPDC-App compiled for the PocketBeagle
-
+Check the [pl-bb-epd companion repository](https://github.com/florianheller/pl-bb-epd/) for the latest version.
+You can download a pre-compiled version that works on the Debian 9.5 image mentioned at the beginning of this document. [epdc-app](./resources/epdc-app)
 ## Test it
 
 ```
