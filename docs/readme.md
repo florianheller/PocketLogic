@@ -22,7 +22,7 @@ This tutorial should work with all Epson S1D13541 EPD controller-based displays 
 
 [![PocketLogic](./img/schematics.jpg)](./img/schematics.pdf)
 
-##Board
+## Board
 
 [cape.brd](./resources/cape.brd)
 
