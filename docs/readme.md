@@ -106,7 +106,7 @@ config-pin p2_20 lo			#HVSW_CTRL
 
 **sudo chmod 755 /usr/bin/epdc-enable-pins.sh**
 
-Create a system service file `/lib/systemd/system/enable-epdc-pins.service`
+Create a system service file `/lib/systemd/system/epdc-enable-pins.service`
 
 **sudo nano /lib/systemd/system/epdc-enable-pins.service**
 ```
@@ -123,13 +123,15 @@ WantedBy=multi-user.target
 ```
 ### Enable the new systemd service
 **sudo systemctl daemon-reload**
-**sudo systemctl enable enable-epdc-pins.service**
+
+**sudo systemctl enable epdc-enable-pins.service**
+
 ```
 Created symlink /etc/systemd/system/multi-user.target.wants/epdc-enable-pins.service → /lib/systemd/system/epdc-enable-pins.service.
 ```
 
 ### Reboot and test
-**sudo systemctl status enable-epdc-pins.service**
+**sudo systemctl status epdc-enable-pins.service**
 ```
 ● epdc-enable-pins.service - Enable pins required for the ePaper display
    Loaded: loaded (/lib/systemd/system/epdc-enable-pins.service; enabled; vendor preset: enabled)
