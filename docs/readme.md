@@ -269,6 +269,10 @@ generic_epdc     generic_update: stat: 0
 ```
 
 
+# Enclosure
+I designed a case for the assembly which I cut on the lasercutter using 3mm Plexiglass (Acrylic). 
+[![PocketLogic Case](./img/case.jpg)](./resources/case.pdf)
+
 
 # Legal & Acknowledgements
 I am not associated to PlasticLogic in any way. I just use their hardware and received very good support while working on the adaptation of the EPD driver software. 
