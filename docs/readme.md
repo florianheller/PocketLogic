@@ -279,3 +279,6 @@ I am not associated to PlasticLogic in any way. I just use their hardware and re
 
 This tutorial is provided `as is'. I used the described setup and it worked fine, but I do not take any responsibility for potential problems that might arise when following this tutorial. 
 
+This work was done at the Expertise Center for Digital Media at Hasselt University in Belgium. 
+This work was partially funded by imec (ICON project SeRGIo), Flanders Make (ICON project OperatorKnowledge) and the Research Foundation - Flanders (FWO, project G0E7317N End-User Development of Intelligible Internet-of-Things Ob-jects and Applications)
+
